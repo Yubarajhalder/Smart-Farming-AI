@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Farming Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  </head>
+  <body class="auth-bg">
+    <main class="auth-card">
+      <h1>Welcome to Smart Farming</h1>
+      <p>Secure login for farmers</p>
+      <form method="post" class="auth-form">
+        <label>Email
+          <input type="email" name="email" placeholder="Enter your email" required />
+        </label>
+        <label>Password
+          <input type="password" name="password" placeholder="Enter your password" required />
+        </label>
+        <button type="submit">Login</button>
+      </form>
+      {% if error_message %}
+      <p class="error-text">{{ error_message }}</p>
+      {% endif %}
+    </main>
+  </body>
+</html>

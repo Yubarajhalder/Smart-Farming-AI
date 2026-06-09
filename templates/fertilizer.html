@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="card">
+  <h2>Fertilizer Suggestion</h2>
+  {% if prediction %}
+    <div class="npk-grid">
+      <div class="card"><h4>N</h4><p>{{ npk.nitrogen }}</p></div>
+      <div class="card"><h4>P</h4><p>{{ npk.phosphorus }}</p></div>
+      <div class="card"><h4>K</h4><p>{{ npk.potassium }}</p></div>
+    </div>
+    <ul>
+      {% for item in prediction.fertilizer_suggestions %}
+      <li>{{ item }}</li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No analysis yet. Please run soil analysis first.</p>
+    <a class="cta-link" href="{{ url_for('soil_analysis') }}">Go to Soil Analysis</a>
+  {% endif %}
+</section>
+{% endblock %}

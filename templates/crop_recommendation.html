@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="card">
+  <h2>Crop Recommendation</h2>
+  {% if prediction %}
+    <div class="results">
+      <article class="card stat">
+        <h3>Soil Health</h3>
+        <p class="result-value">{{ prediction.soil_health }}</p>
+      </article>
+
+      <article class="card stat">
+        <h3>Recommended Crop</h3>
+        <p class="result-value">{{ prediction.crop_name }}</p>
+      </article>
+    </div>
+    <a class="cta-link" href="{{ url_for('fertilizer') }}">View Fertilizer Suggestion</a>
+  {% else %}
+    <p>No analysis yet. Please run soil analysis first.</p>
+    <a class="cta-link" href="{{ url_for('soil_analysis') }}">Go to Soil Analysis</a>
+  {% endif %}
+</section>
+{% endblock %}

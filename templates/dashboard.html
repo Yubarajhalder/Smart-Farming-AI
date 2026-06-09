@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="hero card">
+  <h1>Hello, {{ user_name }}!</h1>
+  <p>Good morning. Choose a feature below.</p>
+</section>
+
+<section class="feature-grid">
+  <a class="card tile" href="{{ url_for('soil_analysis') }}">
+    <h3>Soil Analysis</h3>
+    <p>Analyze soil parameters quickly.</p>
+  </a>
+  <a class="card tile" href="{{ url_for('crop_recommendation') }}">
+    <h3>Crop Recommendation</h3>
+    <p>Get suitable crops for your soil.</p>
+  </a>
+  <a class="card tile" href="{{ url_for('fertilizer') }}">
+    <h3>Fertilizer Suggestion</h3>
+    <p>Find NPK-based fertilizer guidance.</p>
+  </a>
+  <a class="card tile" href="{{ url_for('weather') }}">
+    <h3>Weather Forecast</h3>
+    <p>View weather and next days outlook.</p>
+  </a>
+</section>
+{% endblock %}

@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Farming App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">Smart Farming App</div>
+      <nav class="nav">
+        <a href="{{ url_for('dashboard') }}">Dashboard</a>
+        <a href="{{ url_for('soil_analysis') }}">Soil Analysis</a>
+        <a href="{{ url_for('crop_recommendation') }}">Crop Recommendation</a>
+        <a href="{{ url_for('fertilizer') }}">Fertilizer</a>
+        <a href="{{ url_for('weather') }}">Weather</a>
+        <a href="{{ url_for('logout') }}">Logout</a>
+      </nav>
+    </header>
+    <main class="container">{% block content %}{% endblock %}</main>
+  </body>
+</html>

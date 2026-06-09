@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="card">
+  <h2>Weather Forecast</h2>
+  <form method="get" class="city-form">
+    <input type="text" name="city" placeholder="Enter city" value="{{ weather.city }}" />
+    <button type="submit">Update</button>
+  </form>
+  <p class="result-value">{{ weather.temperature }} - {{ weather.condition }}</p>
+  <p>Humidity: {{ weather.humidity }} | Wind: {{ weather.wind }} | Rainfall: {{ weather.rainfall }}</p>
+
+  <h3>5-Day Forecast</h3>
+  <div class="forecast-grid">
+    {% for day in weather.forecast %}
+    <div class="card">
+      <strong>{{ day.day }}</strong>
+      <p>{{ day.temp }}</p>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="card">
+  <h2>Soil Analysis</h2>
+  <form method="post" class="form-grid">
+    <label>Nitrogen (N)<input type="number" step="any" name="nitrogen" required value="{{ form_values.nitrogen }}" /></label>
+    <label>Phosphorus (P)<input type="number" step="any" name="phosphorus" required value="{{ form_values.phosphorus }}" /></label>
+    <label>Potassium (K)<input type="number" step="any" name="potassium" required value="{{ form_values.potassium }}" /></label>
+    <label>Temperature (C)<input type="number" step="any" name="temperature" required value="{{ form_values.temperature }}" /></label>
+    <label>Humidity (%)<input type="number" step="any" name="humidity" required value="{{ form_values.humidity }}" /></label>
+    <label>pH Value<input type="number" step="any" name="ph" required value="{{ form_values.ph }}" /></label>
+    <label>Rainfall (mm)<input type="number" step="any" name="rainfall" required value="{{ form_values.rainfall }}" /></label>
+    <label>Moisture (%)<input type="number" step="any" name="moisture" required value="{{ form_values.moisture }}" /></label>
+    <label>Organic Carbon<input type="number" step="any" name="organic_carbon" required value="{{ form_values.organic_carbon }}" /></label>
+    <button type="submit">Analyze Soil</button>
+  </form>
+  {% if error_message %}
+  <p class="error-text">{{ error_message }}</p>
+  {% endif %}
+</section>
+
+{% if prediction %}
+<section class="results">
+  <article class="card stat">
+    <h3>Soil Health</h3>
+    <p class="result-value">{{ prediction.soil_health }}</p>
+    <p class="muted">Based on pH, NPK, moisture, and organic carbon.</p>
+  </article>
+
+  <article class="card stat">
+    <h3>Recommended Crop</h3>
+    <p class="result-value">{{ prediction.crop_name }}</p>
+    <a class="cta-link" href="{{ url_for('crop_recommendation') }}">View Crop Details</a>
+  </article>
+
+  <article class="card">
+    <h3>Fertilizer Suggestion</h3>
+    <ul>
+      {% for item in prediction.fertilizer_suggestions %}
+      <li>{{ item }}</li>
+      {% endfor %}
+    </ul>
+    <a class="cta-link" href="{{ url_for('fertilizer') }}">View Full Fertilizer Plan</a>
+  </article>
+</section>
+{% endif %}
+{% endblock %}

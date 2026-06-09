@@ -1,0 +1,13 @@
+ph,nitrogen,phosphorus,potassium,moisture,organic_carbon,soil_health
+6.8,55,42,45,38,0.75,Good
+7.0,50,40,43,35,0.70,Good
+6.5,48,38,40,40,0.65,Good
+5.8,35,30,28,30,0.45,Moderate
+7.8,38,28,32,28,0.40,Moderate
+6.0,32,35,30,25,0.50,Moderate
+4.8,18,15,20,18,0.25,Poor
+8.5,20,18,15,15,0.20,Poor
+5.0,22,20,18,20,0.30,Poor
+7.2,45,35,38,32,0.60,Good
+6.2,40,32,35,30,0.55,Moderate
+8.0,30,25,22,24,0.35,Moderate
